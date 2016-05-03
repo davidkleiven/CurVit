@@ -1,0 +1,5 @@
+# The following files will be ignored
+*.pdf
+*.aux
+*.log
+*.gz
