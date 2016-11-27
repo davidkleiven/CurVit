@@ -3,6 +3,34 @@
 \usepackage[scale=0.8]{geometry}
 \moderncvstyle{classic}
 \moderncvcolor{blue}
+\usepackage{filecontents}
+\definecolor{linkColor}{rgb}{0.156 0.546 0.742}
+
+\newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+\begin{filecontents}{conference.bib}
+  @inproceedings{kleiven2016experimental,
+  title={Experimental Setup to Measure the Damage Limits of Superconducting Magnets due to Beam Impact at CERN's HiRadMat Facility},
+  author={Kleiven, David and Auchmann, Bernhard and Raginel, Vivien and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
+  booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
+  pages={4200--4202},
+  year={2016},
+  organization={JACOW, Geneva, Switzerland}
+  }
+
+  @inproceedings{raginel2016degradation,
+    title={Degradation of the insulation of the LHC main dipole cable when exposed to high temperatures},
+    author={Raginel, Vivien and Auchmann, Bernhard and Kleiven, David and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
+    booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
+    pages={1186--1189},
+    year={2016},
+    organization={JACOW, Geneva, Switzerland}
+  }
+
+\end{filecontents}
 
 \firstname{David}
 \lastname{Kleiven}
@@ -15,7 +43,7 @@
 \makecvtitle
 
 \section{Education}
-\cvitem{2011 - Present}{Master in applied physics, NTNU (Norwegian University of Science and Technology}
+\cvitem{2011 - Present}{Master's degree in applied physics, NTNU (Norwegian University of Science and Technology}
 \cvitem{2010 - 2011}{Military service, H.M. King's Guard Music and Drill Company}
 \cvitem{2007 - 2010}{General studies at Skeisvang vgs.}
 
@@ -26,9 +54,11 @@ due to beam impact. Typical tasks include taking part in the design of experimen
 setups, simulating interactions between charged particles and matter and
 performing damage tests on critical components of the LHC superconducting magnets.}
 \cventry{2015}{Summer internship at Silicon Labs}{}{}{}{Implementing bluetooth
-support for microcontrollers and extending the example gallery for
-Silicon Labs' microcontrollers on the Mbed platform.}
-\cventry{2014}{Summer internship at W{\"a}rtsil{\"a}}{}{}{}{Building graphics for cargo ship control system applications.} 
+support for microcontrollers for
+Silicon Labs' microcontrollers on the \Colorhref[linkColor]{https://www.mbed.com/en/}{Mbed} platform.
+The example gallery for the \emph{Happy Gecko Starter Kit} was also extended by implementing
+a snake-like game called \Colorhref[linkColor]{https://developer.mbed.org/teams/SiliconLabs/code/Hungry_gecko/graph}{Hungry Gecko Game}.}
+\cventry{2014}{Summer internship at W{\"a}rtsil{\"a}}{}{}{}{Building graphics for cargo ship control system applications.}
 \cventry{2014}{Summer internship at Polytec}{}{}{}{Research assistant on a project concerning functional materials.}
 \cventry{2013}{Summer internship at Gassco}{}{}{}{Statistical analysis of gas prognosis.}
 \cventry{2011 - 2013}{Teaching assistant in various courses at
@@ -46,5 +76,11 @@ NTNU}{}{}{}{Supervising a group of about 20 students in exercise classes.}
 
 \section{References}
 \cvitem{}{Provided on request.}
-\end{document}
 
+% Publication list
+\nocite{*}
+\bibliographystyle{ieeetr}
+\renewcommand{\refname}{Conference papers}
+{\footnotesize \bibliography{conference.bib}}
+
+\end{document}
