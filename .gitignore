@@ -5,3 +5,5 @@
 *.gz
 *.swp
 *.out
+*.bbl
+*.blg
