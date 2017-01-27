@@ -1,0 +1,97 @@
+\documentclass[verdana]{moderncv}
+
+\usepackage[scale=0.8]{geometry}
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage{filecontents}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\definecolor{linkColor}{rgb}{0.156 0.546 0.742}
+
+\newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+\begin{filecontents}{conference.bib}
+  @inproceedings{kleiven2016experimental,
+  title={Experimental Setup to Measure the Damage Limits of Superconducting Magnets due to Beam Impact at CERN's HiRadMat Facility},
+  author={Kleiven, David and Auchmann, Bernhard and Raginel, Vivien and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
+  booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
+  pages={4200--4202},
+  year={2016},
+  organization={JACOW, Geneva, Switzerland}
+  }
+
+  @inproceedings{raginel2016degradation,
+    title={Degradation of the insulation of the LHC main dipole cable when exposed to high temperatures},
+    author={Raginel, Vivien and Auchmann, Bernhard and Kleiven, David and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
+    booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
+    pages={1186--1189},
+    year={2016},
+    organization={JACOW, Geneva, Switzerland}
+  }
+
+\end{filecontents}
+
+\firstname{David}
+\lastname{Kleiven}
+\title{Curriculum Vitae}
+\address{Edgar B. Schieldropsvei 100B}{7021 Trondheim}
+\mobile{93060916}
+\email{davidkleiven446@gmail.com}
+\photo[64pt]{../imageCrop.jpg}
+
+\begin{document}
+\makecvtitle
+
+\section{Utdanning}
+\cvitem{2011 - Present}{Sivilinginør i Fysikk og Matematikk ved NTNU (Norges Teknisk Naturvitenskapelige Universitet)}
+\cvitem{2010 - 2011}{Førstegangstjeneste i HM Kongens Grardes Musikk og drill kompani.}
+\cvitem{2007 - 2010}{Studiespesialisering ved Skeisvang vgs.}
+
+\section{Arbeidserfaring}
+\cventry{2015 - 2016}{Teknisk student ved CERN}{}{}{}{
+Jobbet på prosjekt hvor målet var å studere skade på komponenter i superledende magneter
+i Large Hadron Collider (LHC) grunnet protonstråling.
+Arbeidet innebar å ta del i design av eksperimentelle oppsett,
+simulering av vekselvirkninger mellom ladde partikler og faste stoffer og
+gjennomføring av eksperimenter på kritiske komponenter av de superledende
+magnetene i LHC.
+}
+\cventry{2015}{Sommerjobb i Silicon Labs}{}{}{}{
+Implentering av bluetoothstøtte for Silicon Labs mikrokontrollere på
+\Colorhref[linkColor]{https://www.mbed.com/en/}{Mbed} platformen.
+I tillegg ble eksempelgalleriet for \emph{Happy Gecko Starter Kit} utvidet
+ved å implementere det snake-lignende spillet
+\Colorhref[linkColor]{https://developer.mbed.org/teams/SiliconLabs/code/Hungry_gecko/graph}{Hungry Gecko Game}
+}
+\cventry{2014}{Sommerjobb W{\"a}rtsil{\"a}}{}{}{}{Lage grafiske bilder for kontrollsystemapplikasjoner på lasteskip.}
+\cventry{2014}{Sommerjobb i Polytec}{}{}{}{Forskningsassistent på et prosjekt
+angående anti-is overflater.}
+\cventry{2013}{Sommerjobb i Gassco}{}{}{}{Statistisk analyse av historiske produksjonsdata
+og sammenligning mot eksisterende prognosemodeller.}
+\cventry{2011 - 2013}{Studentassistent i ulike kurs ved NTNU}{}{}{}{
+Veileding en gruppe på ca. 20 studenter under regneøvinger.
+}
+
+\section{Tekniske ferdigheter}
+\cvitem{Programmering}{C/C++, Fortran, MATLAB, Python, Perl}
+\cvitem{Tekstbehandling}{\LaTeX, MS Office, Open office}
+
+\section{Språk}
+\cvitem{Norks}{Morsmål}
+\cvitem{Engelsk}{Flytende}
+\cvitem{Tysk}{Grunnleggende}
+\cvitem{Fransk}{Grunnleggende}
+
+\section{Referanser}
+\cvitem{}{Oppgis på forespørsel}
+
+% Publication list
+\nocite{*}
+\bibliographystyle{ieeetr}
+\renewcommand{\refname}{Konferanseartikler}
+{\footnotesize \bibliography{conference.bib}}
+
+\end{document}
