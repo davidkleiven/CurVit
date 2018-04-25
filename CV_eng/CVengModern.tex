@@ -3,34 +3,12 @@
 \usepackage[scale=0.8]{geometry}
 \moderncvstyle{classic}
 \moderncvcolor{blue}
-\usepackage{filecontents}
 \definecolor{linkColor}{rgb}{0.156 0.546 0.742}
 
 \newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 \makeatother
-
-\begin{filecontents}{conference.bib}
-  @inproceedings{kleiven2016experimental,
-  title={Experimental Setup to Measure the Damage Limits of Superconducting Magnets due to Beam Impact at CERN's HiRadMat Facility},
-  author={Kleiven, David and Auchmann, Bernhard and Raginel, Vivien and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
-  booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
-  pages={4200--4202},
-  year={2016},
-  organization={JACOW, Geneva, Switzerland}
-  }
-
-  @inproceedings{raginel2016degradation,
-    title={Degradation of the insulation of the LHC main dipole cable when exposed to high temperatures},
-    author={Raginel, Vivien and Auchmann, Bernhard and Kleiven, David and Schmidt, Ruediger and Verweij, Arjan and Wollmann, Daniel},
-    booktitle={7th International Particle Accelerator Conference (IPAC'16), Busan, Korea, May 8-13, 2016},
-    pages={1186--1189},
-    year={2016},
-    organization={JACOW, Geneva, Switzerland}
-  }
-
-\end{filecontents}
 
 \firstname{David}
 \lastname{Kleiven}
@@ -44,12 +22,18 @@
 \makecvtitle
 
 \section{Education}
-\cvitem{2011 - Present}{Master's degree in applied physics, NTNU (Norwegian University of Science and Technology}
+\cvitem{2017 - present}{PhD student at NTNU (Norwegian University of Science and Technology).
+My project is titled \emph{\textbf{Atomistic Simulations of Precipitate Formation in
+Aluminum Alloys}}. The objective is to develop new models for precipitate
+formation from first principle calculations.
+I use large scale parallel computing resources to study energetics with
+Density Functional Theory, Cluster Expansion and Monte Carlo methods.}
+\cvitem{2011 - 2017}{Master's degree in applied physics, NTNU}
 \cvitem{2010 - 2011}{Military service, H.M. King's Guard Music and Drill Company}
 \cvitem{2007 - 2010}{General studies at Skeisvang vgs.}
 
 \section{Experience}
-\cventry{2015 - Present}{Technical Student at CERN}{}{}{}{Working on a project
+\cventry{2015 - 2016}{Technical Student at CERN}{}{}{}{Working on a project
 concerning determination of the damage limits of the Large Hadron Collider (LHC) superconducting magnets
 due to beam impact. Typical tasks include taking part in the design of experimental
 setups, simulating interactions between charged particles and matter and
@@ -82,6 +66,6 @@ NTNU}{}{}{}{Supervising a group of about 20 students in exercise classes.}
 \nocite{*}
 \bibliographystyle{ieeetr}
 \renewcommand{\refname}{Publications}
-{\footnotesize \bibliography{conference.bib}}
+{\footnotesize \bibliography{pub,conference}}
 
 \end{document}
