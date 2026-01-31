@@ -1,0 +1,44 @@
+name: LaTeX Compilation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile LaTeX files
+      run: |
+        find . -name "*.tex" -type f | while read -r tex_file; do
+          dir=$(dirname "$tex_file")
+          base=$(basename "$tex_file" .tex)
+          (cd "$dir" && xelatex -interaction=nonstopmode -shell-escape "$base.tex")
+        done
+
+    - name: Check PDF files were created
+      run: |
+        pdf_count=$(find . -name "*.pdf" -type f | wc -l)
+        if [ "$pdf_count" -gt 0 ]; then
+          echo "✅ $pdf_count PDF files compiled successfully"
+          find . -name "*.pdf" -type f
+        else
+          echo "❌ No PDF files were created"
+          exit 1
+        fi
+
+    - name: Upload PDF artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: compiled-pdfs
+        path: |
+          **/*.pdf
+        retention-days: 30

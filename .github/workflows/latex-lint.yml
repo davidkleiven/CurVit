@@ -1,0 +1,30 @@
+name: LaTeX Linting
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run latexindent on all .tex files
+      run: |
+        find . -name "*.tex" -type f -exec latexindent -w {} \;
+
+    - name: Check for changes
+      run: |
+        if [[ -n $(git status --porcelain) ]]; then
+          echo "❌ Linting failed - files were modified by latexindent"
+          git diff
+          exit 1
+        else
+          echo "✅ All .tex files pass linting"
+        fi
