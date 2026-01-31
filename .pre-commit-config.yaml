@@ -1,0 +1,8 @@
+repos:
+  - repo: https://github.com/cmhughes/latexindent.pl.git
+    rev: V3.24.7  # specify the version you want
+    hooks:
+      - id: latexindent
+        args: []  # optional arguments to pass to latexindent.pl
+        files: \.tex$  # run only on .tex files
+
